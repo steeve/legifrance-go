@@ -65,7 +65,7 @@ func (c *Code) Article(articleId string) (*Article, error) {
 	return article, nil
 }
 
-func (c *Code) Sections() chan *Section {
+func (c *Code) Sections() <-chan *Section {
 	ch := make(chan *Section)
 
 	go func() {
@@ -81,7 +81,7 @@ func (c *Code) Sections() chan *Section {
 	return ch
 }
 
-func (c *Code) Articles() chan *Article {
+func (c *Code) Articles() <-chan *Article {
 	ch := make(chan *Article)
 
 	go func() {

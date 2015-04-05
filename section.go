@@ -49,7 +49,7 @@ func (s *Section) Article(articleId string) (*Article, error) {
 	return article, nil
 }
 
-func (s *Section) Articles() chan *Article {
+func (s *Section) Articles() <-chan *Article {
 	ch := make(chan *Article)
 
 	go func() {
@@ -65,7 +65,7 @@ func (s *Section) Articles() chan *Article {
 	return ch
 }
 
-func (s *Section) SubSections() chan *Section {
+func (s *Section) SubSections() <-chan *Section {
 	ch := make(chan *Section)
 
 	go func() {
@@ -90,7 +90,7 @@ func walkSectionTree(s *Section, ch chan *Article) {
 	}
 }
 
-func (s *Section) ArticlesWithChildren() chan *Article {
+func (s *Section) ArticlesWithChildren() <-chan *Article {
 	ch := make(chan *Article)
 
 	go func() {
