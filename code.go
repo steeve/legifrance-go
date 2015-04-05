@@ -46,7 +46,7 @@ func NewCodeFromFile(path string) (*Code, error) {
 }
 
 func (c *Code) Section(sectionId string) (*Section, error) {
-	path := filepath.Join(c.l.Path, legiIdToSlug(c.Id), c.Id, "section_ta", legiIdToSlug(sectionId), sectionId) + ".xml"
+	path := filepath.Join(c.l.Path, "global", "code_et_TNC_en_vigueur", "code_en_vigueur", legiIdToSlug(c.Id), c.Id, "section_ta", legiIdToSlug(sectionId), sectionId) + ".xml"
 	section, err := NewSectionFromFile(path)
 	if err != nil {
 		return nil, err
@@ -56,7 +56,7 @@ func (c *Code) Section(sectionId string) (*Section, error) {
 }
 
 func (c *Code) Article(articleId string) (*Article, error) {
-	path := filepath.Join(c.l.Path, legiIdToSlug(c.Id), c.Id, "article", legiIdToSlug(articleId), articleId) + ".xml"
+	path := filepath.Join(c.l.Path, "global", "code_et_TNC_en_vigueur", "code_en_vigueur", legiIdToSlug(c.Id), c.Id, "article", legiIdToSlug(articleId), articleId) + ".xml"
 	article, err := NewArticleFromFile(path)
 	if err != nil {
 		return nil, err

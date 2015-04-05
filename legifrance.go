@@ -27,7 +27,7 @@ func legiIdToSlug(id string) string {
 }
 
 func (l *LegiFrance) Code(codeId string) (*Code, error) {
-	path := filepath.Join(l.Path, legiIdToSlug(codeId), codeId, "texte", "struct", codeId) + ".xml"
+	path := filepath.Join(l.Path, "global", "code_et_TNC_en_vigueur", "code_en_vigueur", legiIdToSlug(codeId), codeId, "texte", "struct", codeId) + ".xml"
 	code, err := NewCodeFromFile(path)
 	if err != nil {
 		return nil, err

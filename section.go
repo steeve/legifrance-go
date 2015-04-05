@@ -39,7 +39,7 @@ func NewSectionFromFile(path string) (*Section, error) {
 }
 
 func (s *Section) Article(articleId string) (*Article, error) {
-	path := filepath.Join(s.Code.l.Path, legiIdToSlug(s.Code.Id), s.Code.Id, "article", legiIdToSlug(articleId), articleId) + ".xml"
+	path := filepath.Join(s.Code.l.Path, "global", "code_et_TNC_en_vigueur", "code_en_vigueur", legiIdToSlug(s.Code.Id), s.Code.Id, "article", legiIdToSlug(articleId), articleId) + ".xml"
 	article, err := NewArticleFromFile(path)
 	if err != nil {
 		return nil, err
