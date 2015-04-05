@@ -6,6 +6,25 @@ const (
 	StateRevoked  = "ABROGE"
 )
 
+const (
+	LinkCreates  = "CREATION"
+	LinkModifies = "MODIFIE"
+	LinkCites    = "CITATION"
+	LinkRetires  = "ABROGATION"
+
+	LinkSource = "source"
+	LinkTarget = "cible"
+)
+
+const (
+	NatureCode       = "CODE"
+	NatureDecree     = "DECRET"
+	NatureDecreeLaw  = "DECRET_LOI"
+	NatureLaw        = "LOI"
+	NatureSentence   = "ARRETE"
+	NatureOrganicLaw = "LOI_ORGANIQUE"
+)
+
 type CommonMeta struct {
 	Id     string `xml:"META>META_COMMUN>ID"`
 	OldId  string `xml:"META>META_COMMUN>ANCIEN_ID"`
