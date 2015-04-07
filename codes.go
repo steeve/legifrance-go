@@ -1,6 +1,7 @@
 package legifrance
 
 const (
+	Constitution                                                                                   = "LEGITEXT000006071194"
 	CodeDeLArtisanat                                                                               = "LEGITEXT000006075116"
 	CodeDesAssurances                                                                              = "LEGITEXT000006073984"
 	CodeDeLAviationCivile                                                                          = "LEGITEXT000006074234"
@@ -76,6 +77,7 @@ const (
 )
 
 var Codes = []string{
+	Constitution,
 	CodeDeLArtisanat,
 	CodeDesAssurances,
 	CodeDeLAviationCivile,
