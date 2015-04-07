@@ -7,10 +7,14 @@ const (
 )
 
 const (
-	LinkCreates  = "CREATION"
-	LinkModifies = "MODIFIE"
-	LinkCites    = "CITATION"
-	LinkRetires  = "ABROGATION"
+	LinkCodifies     = "CODIFIE"
+	LinkCodification = "CODIFICATION"
+	LinkCreates      = "CREE"
+	LinkCreation     = "CREATION"
+	LinkModifies     = "MODIFIE"
+	LinkModification = "MODIFICATION"
+	LinkCitation     = "CITATION"
+	LinkRetirement   = "ABROGATION"
 
 	LinkSource = "source"
 	LinkTarget = "cible"
