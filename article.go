@@ -7,13 +7,16 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"time"
 )
 
 var (
 	ReHtmlTag       = regexp.MustCompile(`<[^>]*>`)
+	ReWhiteSpaces   = regexp.MustCompile(`\s+`)
 	ReCR            = regexp.MustCompile(`\n{2,}`)
 	ReSpaces        = regexp.MustCompile(` +`)
 	ReSpacesAfterCR = regexp.MustCompile(`\n[ ]+`)
+	ReLawNumber     = regexp.MustCompile(`[0-9]{2,4}-[0-9]{2,4}(-[0-9]{2})?`)
 )
 
 type Article struct {
@@ -63,6 +66,18 @@ func NewArticleFromReader(r io.Reader) (*Article, error) {
 	a.Body.Text = ReSpaces.ReplaceAllString(a.Body.Text, " ")
 	a.Body.Text = ReCR.ReplaceAllString(a.Body.Text, "\n\n")
 	a.Body.Text = strings.TrimSpace(a.Body.Text)
+
+	for _, link := range a.Links {
+		link.Text = ReWhiteSpaces.ReplaceAllString(link.Text, " ")
+		if link.TextNumber == "" {
+			link.TextNumber = ReLawNumber.FindString(link.Text)
+		}
+		if link.TextSignDate == "" && link.TextNumber != "" {
+			if _, err := time.Parse("2006-01-02", link.TextNumber); err == nil {
+				link.TextSignDate = link.TextNumber
+			}
+		}
+	}
 
 	return a, nil
 }
